@@ -1,0 +1,1081 @@
+<head>
+    <style>
+        *{
+            box-sizing:border-box;
+        }
+
+        html,
+        body {
+            font-size: 21px;
+            font-family: "Arial";
+            line-height: 1.3em;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            width: 1088px;
+            height: 1408px;
+        }
+
+        /* Document Template */
+        
+        .text-element ul, .text-element ol {
+          padding-left: 40px !important;
+        }
+
+        ul li::marker, ol li::marker {
+          color: {{global.classes.bulletsColor.value}};
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 400;
+            line-height: 1em;
+            margin-top: 0;
+            margin-bottom: 0.5em;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .bold {
+            font-weight: 600;
+        }
+
+        .medium {
+            font-weight: 500;
+        }
+
+        .normal {
+            font-weight: 400;
+        }
+
+        .capitalize{
+            text-transform: uppercase;
+        }
+
+        table tr {
+            line-height:1.3em
+        }
+
+        /* IMAGE & Company Logo*/
+
+        input::placeholder,
+        textarea::placeholder {
+            font-family: "Roboto", sans-serif;
+            font-size: 21px;
+            color: #382153;
+            justify-items: center;
+        }
+
+        .text-element{
+            text-align: left;
+            word-wrap: break-word;
+        }
+
+        /* SIGNATURE */
+
+        .signature .signature-field {
+            margin: auto 0;
+            max-height: 100%;
+            -o-object-fit: contain;
+            object-fit: contain;
+        }
+
+        .signature-wrapper {
+            position: relative;
+            background: #ffffff;
+            border: 1px solid #382153;
+            padding: 7px 20px;
+        }
+
+        .signature-wrapper img{
+            object-fit: contain;
+        }
+
+        .signature-wrapper input {
+            padding: 11px 20px 7px 68px;
+        }
+
+        .signature-wrapper input::placeholder {
+            position: absolute;
+            top: 12px;
+        }
+
+        .signature-wrapper .signature-img{
+            height: 27px;
+            width: 27px;
+        }
+
+        .signature div input {
+          height: 100%;
+          width: 100%;
+        }
+
+        /* VIDEO */
+        .video-element {
+            max-width: 100% !important;
+            width: auto;
+            height: auto;
+        }
+
+        /* TEXT-FIELD */
+
+        .text-area-wrapper{
+            text-align:left;
+            padding: 9px 20px;
+            border:1px solid #382153;
+            background: #FFFFFF;
+        }
+
+        .text-area {
+            height: 100%;
+        }
+
+        /* BUTTON */
+
+        button{
+            font-size: 21px;
+        }
+
+        .button-element,
+        .divider-element {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* CHECKBOX */
+
+        .checkbox-wrapper{
+            padding: 11px;
+        }
+
+        input[type='checkbox']:checked {
+          background-color: #22df58;
+        }
+
+        input[type='checkbox']:checked:after {
+          content: '\2713';
+          color:white;
+        }
+
+        input[type='checkbox']{
+          text-align: center;
+          display: table-cell;
+          vertical-align: middle;
+          width: 20px !important;
+          height: 20px !important;
+          appearance:none;
+          border-radius:4px;
+          border: 1px solid rgb(191 35 42 / 90%);
+          box-shadow: none;
+        }
+
+        /* QUOTE */
+        .description {
+            font-weight: 400;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            line-clamp: 2;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+        }
+
+        .quote-header,
+        .quote-footer {
+            min-height: 41px;
+            padding: 11px 43px;
+            gap: 11px 94px;
+        }
+
+        .payment-info {
+            background: #FFFFFF;
+            font-family: "Roboto", sans-serif;
+            font-size: 21px;
+            color: #59486e;
+            padding: 21px 43px;
+        }
+
+        .payment-info .line {
+            gap: 11px 94px;
+            margin-bottom: 11px;
+        }
+
+        .quote-table-column {
+            gap: 0 21px;
+        }
+
+        .quote-table-column .details {
+            gap: 0 21px;
+        }
+
+        .column .quote-table-column img{
+            border: 1px solid #cac6cb;
+            border-radius: 16px;
+            width: 83px;
+            height: 83px;
+            object-fit: cover;
+        }
+
+        .column .quote-table-column .data {
+            gap: 11px 21px;
+            margin-bottom: 21px;
+        }
+
+        .column .quote-table-column .data .billing-info {
+            width: 100%;
+            text-align: right;
+        }
+
+        .column .quote-table-column .discount {
+            gap: 5px 21px;
+        }
+
+        .column-container {
+            max-width: 1088px;
+            overflow: hidden;
+            position: relative;
+            width: 1088px;
+            padding: 0.5%;
+            margin: 4px 0;
+        }
+
+        .column-container .column {
+            padding: 0;
+            z-index: 1;
+            flex-shrink: 1;
+            flex-basis: 20%;
+            margin: 1.5%;
+            min-width: 230px;
+        }
+
+        .column img,
+        .column video {
+            height: auto;
+            max-width: 100%;
+        }
+
+        .display-flex {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .flex-column {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+            -moz-box-orient: vertical;
+            -moz-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+
+        .flex-row {
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: row;
+            -moz-box-orient: horizontal;
+            -moz-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+        }
+
+        .justify-content-flex-end {
+            -webkit-box-pack: end;
+            -webkit-justify-content: flex-end;
+            -moz-box-pack: end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+        }
+
+        .justify-content-flex-start {
+            -webkit-box-pack: start;
+            -webkit-justify-content: flex-start;
+            -moz-box-pack: start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+        }
+
+        .justify-content-center {
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -moz-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        .justify-content-space-between {
+            -webkit-box-pack: space-between;
+            -webkit-justify-content: space-between;
+            -moz-box-pack: space-between;
+            -ms-flex-pack: space-between;
+            justify-content: space-between;
+        }
+
+        .justify-content-space-evenly {
+                -webkit-box-pack: space-evenly;
+                -webkit-justify-content: space-evenly;
+                -moz-box-pack: space-evenly;
+                -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
+        }
+
+        .justify-content-space-around {
+            -webkit-justify-content: space-around;
+           -ms-flex-pack: distribute;
+            justify-content: space-around;
+        }
+
+        .justify-content-stretch button {
+            display: block;
+            width: 100%;
+        }
+
+        .align-items-flex-end {
+            -webkit-box-align: end;
+            -webkit-align-items: flex-end;
+            -moz-box-align: end;
+            -ms-flex-align: end;
+            align-items: flex-end;
+        }
+
+        .align-items-flex-start {
+            -webkit-box-align: start;
+            -webkit-align-items: flex-start;
+            -moz-box-align: start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+        }
+
+        .align-items-center {
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -moz-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .align-items-stretch {
+            -webkit-box-align: stretch;
+            -webkit-align-items: stretch;
+            -moz-box-align: stretch;
+            -ms-flex-align: stretch;
+            align-items: stretch;
+        }
+
+        .flex-wrap {
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+
+        .divider-element {
+            height: 67px !important;
+        }
+
+        /*PAGES*/
+        .page {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .page.certificate {
+            background-color: #F4F5F9;
+            background-image: url('https://cdn.honeycrm.com/files/Upper_Background_Certificate_Of_Completion.png'), url('https://cdn.honeycrm.com/files/Lower_Background_Certificate_Of_Completion.png');
+            background-position: right top, left bottom;
+            background-repeat: no-repeat, no-repeat;
+            background-size: contain, contain;
+            padding: 84px 68px 56px;
+            font-family: Nunito;
+            color: #382153;
+        }
+
+        .page-header,.page-footer {
+            height: 85px;
+            padding: 0px 33px;
+        }
+
+        .page-canvas {
+            height: 1237px;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .section {
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0 84px;
+        }
+
+        .column {
+            flex-direction: column;
+            justify-content: center;
+            flex: 1;
+        }
+
+        /*PAGES*/
+
+        .element {
+            padding: 4px 9px;
+        }
+
+
+        .document-video-element .video-container,
+        .document-video-element .video-container video {
+            height: 100%;
+            max-width: 100%;
+
+        }
+
+        .message-container, .document-name{
+            max-width: 60%;
+        }
+
+        /*Certificate*/
+
+        .page.certificate .header-container .header .title {
+            font-size: 35px;
+            line-height: 16px;
+            margin-bottom: 14px;
+        }
+
+        .page.certificate .header-container .header .document-id {
+            font-size: 17px;
+            line-height: 17px;
+            margin-bottom: 7px;
+        }
+
+        .page.certificate .header-container .details-card {
+            min-width: 252px;
+            min-height: 98px ;
+            background: #FFFFFF;
+            border-radius: 8px;
+            font-size: 12px;
+            line-height: 17px;
+            margin-bottom: 14px;
+            padding: 22px 28px;
+            gap: 12px;
+        }
+
+        .page.certificate .container {
+            height: calc(100% - 160px);
+        }
+
+        .page.certificate .container .recipients-table .table-header {
+            background: url('https://cdn.honeycrm.com/files/month-group-top-left-border.png');
+            background-position: top left;
+            background-size: cover;
+            background-color: #F4F5F9;
+            width: 50%;
+            background-repeat: no-repeat;
+            padding: 15px 0 0 27px;
+        }
+
+        .page.certificate .container .recipients-table .table-header .title {
+            font-size: 17px;
+            line-height: 17px;
+            padding-bottom: 14px;
+            width: 100%;
+        }
+
+        .page.certificate .container .recipients-table .columns {
+            border-top: 2px solid #E9E9EF;
+            margin-left: 28px;
+        }
+
+        .page.certificate .container .recipients-table .columns .column-name {
+            color: #877D88;
+            font-size: 13px;
+            line-height: 17px;
+            padding: 20px 28px 20px 0;
+        }
+
+        .page.certificate .container .recipient-card {
+            box-shadow: 0px 3px 5px #8274E819;
+            background: #FFFFFF;
+            border-radius: 8px;
+            min-height: 127px;
+            margin-bottom: 13px;
+            padding: 20px 27px;
+        }
+
+        .page.certificate .container .recipient-card .pillar {
+            flex: 1;
+        }
+
+        .page.certificate .container .recipient-card img {
+            border-radius: 50%;
+            margin-right: 13px;
+            height: 70px;
+            width: 70px;
+        }
+
+        .page.certificate .container .recipient-card .pillar.signer-info-wrapper,
+        .page.certificate .container .recipient-card .pillar.signer-action {
+            padding-top: 10px;
+        }
+
+        .page.certificate .container .recipient-card .pillar .signer-info {
+            font-family: Roboto;
+            font-size: 12px;
+            line-height: 14px;
+            color: #382153;
+        }
+
+        .page.certificate .container .recipient-card .pillar.signer-info-wrapper {
+            word-break: break-all;
+        }
+
+        .page.certificate .container .recipient-card .pillar .signer-info .name {
+            font-size: 17px;
+            line-height: 20px;
+        }
+
+        .page.certificate .container .recipient-card .pillar .signer-info .email {
+            margin-bottom: 7px;
+        }
+
+        .page.certificate .container .recipient-card .pillar.signer-action {
+            font-family: Roboto;
+            font-size: 13px;
+            line-height: 17px;
+        }
+
+        .page.certificate .container .recipient-card .pillar.signer-action div {
+            gap: 9px;
+        }
+
+        .page.certificate .container .recipient-card .pillar .signature-container {
+            width: 203px;
+            height: 87px;
+        }
+
+        .page.certificate .container .recipient-card .pillar .signature-container.signature {
+            border: 1px solid #877d88;
+            border-radius: 7px;
+            padding: 8px;
+        }
+
+        .page.certificate .container .recipient-card .pillar .signature-container.signature img {
+            margin: auto 0;
+            max-height: 100%;
+            width: 100%;
+            -o-object-fit: contain;
+            object-fit: contain;
+        }
+
+        .page.certificate .footer-container {
+            color: #59486E;
+            font-size: 22px;
+            line-height: 36px;
+        }
+
+        .page.certificate .footer-container img {
+        width: 206px;
+        margin-left: 8px;
+        }
+
+        @media print {
+          .page {
+                clear: both;
+                page-break-after: always;
+          }
+          .page-breaker {
+            display: none;
+          }
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+</head>
+
+<body>
+    <div class="document">
+        {{#each pages}}
+            {{#times pageBreaksNumber}}
+                <div class="page" style="background:{{style.computedBackground}};">
+                    {{#ifCond header.isGlobalVisible '&&' isIndividualHeaderVisible}}
+                    {{#ifCond index '===' 1}}
+                      <div class="page-header display-flex  justify-content-space-between align-items-center " 
+                          style="background:{{header.style.computedBackground}}; 
+                          font-size: {{header.style.scaledFontSize}}px;
+                          font-family: {{header.style.title.fontFamily.value}};
+                          color: {{header.style.title.color.value}};
+                          overflow: hidden;"
+                      >      
+                          {{#if header.content.logo.src}}
+                          <img src="{{header.content.logo.src}}" style="height: 60px; width: auto;">
+                          {{else}}
+                          <div style="height: 60px; width: auto;"></div>
+                          {{/if}}
+                          {{#if header.content.hasDocumentName}}
+                          <div class="document-name" style="text-align: center;">
+                              {{header.content.text}}
+                          </div>
+                          {{/if}}
+                      </div>
+                    {{else}}
+                      <div class="page-header"></div>
+                    {{/ifCond}}
+                    {{else}}
+                    <div class="page-header"></div>
+                    {{/ifCond}}
+                    <div class="page-canvas ">
+                        {{#each sections}}
+                        <div class="section display-flex flex-row justify-content-center"
+                            style="width: 100%; 
+                            background:{{style.scaledBackground}};
+                            margin-top: {{style.scaledTopSpacing}}px;
+                            margin-bottom: {{style.scaledBottomSpacing}}px;
+                            transform: {{ translateSection ../index }}"
+                        >
+                            <div class="column-container display-flex justify-content-center">
+                                {{#each columns}}
+                                <div class="column" 
+                                    style="
+                                    -webkit-box-flex: {{style.flexGrow}};
+                                    -webkit-flex-grow: {{style.flexGrow}}; 
+                                    -moz-box-flex: {{style.flexGrow}};
+                                    -ms-flex-positive: {{style.flexGrow}};
+                                    flex-grow: {{style.flexGrow}};"
+                                >
+                                    {{#each elements}}
+                                    <div class="element">
+                                        {{#if isText}}
+                                        <div class="text-element">
+                                            {{safeString (replacePxWithPts content.body)}}
+                                        </div>
+                                        {{/if}}
+                                        <!-- Image Element -->
+                                        {{#if isImage}}
+                                        <div class="image-container display-flex flex-row justify-content-{{style.justifyContent}}"
+                                            style="padding: {{style.scaledSpacing}}px;">
+                                            {{#if content.hasLink}}
+                                            <a href="{{content.link}}" target="_blank">
+                                                <img src="{{content.sourceUrl}}"
+                                                style="height:{{style.height}}; width: {{style.scaledWidth}}px;"
+                                                alt=""
+                                                />
+                                            </a>
+                                            {{else}}
+                                                <img src="{{content.sourceUrl}}"
+                                                style="height:{{style.height}}; width: {{style.scaledWidth}}px;"
+                                                alt=""
+                                                />
+                                            {{/if}}
+                                        </div>
+                                        {{/if}}
+                                        <!-- Video Element -->
+                                        {{#if isVideo}}
+                                        <div class="video-container display-flex flex-row justify-content-{{style.justifyContent}}">
+                                            <a href="{{content.sourceUrl}}" target="_blank">
+                                                <video preload="none" src="{{content.sourceUrl}}" poster="{{content.thumbnail.sourceUrl}}"
+                                                style="height:{{style.height}}; width: {{style.scaledWidth}}px;"
+                                                >
+                                                </video>
+                                            </a>
+                                        </div>
+                                        {{/if}}
+                                        <!-- Button Element -->
+                                        {{#if isButton}}
+                                        <div class="button-element display-flex flex-row justify-content-{{style.computedAlignment}}">
+                                            <a 
+                                            href= "{{content.link}}"
+                                            target="_blank"
+                                            style="color: {{style.textColor.value}};
+                                                background-color: {{style.computedBackgroundColor}};
+                                                border: {{style.scaledBorder}};
+                                                border-radius: {{style.scaledBorderRadius}}px;
+                                                padding: 13px 33px;
+                                                font-family: {{style.fontFamily.value}};
+                                                font-size: {{style.scaledFontSize}}px;
+                                                text-align: center;
+                                                text-decoration: none;
+                                                -webkit-text-size-adjust: none;"
+                                            >
+                                                {{content.text}}
+                                            </a>
+                                        </div>
+                                        {{/if}}
+                                        <!-- Divider Element -->
+                                        {{#if isDivider}}
+                                        <div
+                                            class="divider-element display-flex flex-row align-items-center justify-content-center">
+                                            <div
+                                                style="background-color: {{style.color.value}}; width: {{style.computedWidth}}; height: {{style.scaledHeight}}px; border-radius: {{style.scaledBorderRadius}}px;">
+                                            </div>
+                                        </div>
+                                        {{/if}}
+                                        <!-- Spacer Element -->
+                                        {{#if isSpacer}}
+                                        <div class="spacer" style="height: {{style.scaledHeight}}px;"></div>
+                                        {{/if}}
+                                        <!-- Text Field Element -->
+                                        {{#if isTextField}}
+                                            <div class="text-field display-flex flex-column" style="padding:5px;text-align:left">
+                                                {{#if content.hasLabel}}
+                                                <label for="text-field" class="bold" style="color: {{style.label.color.value}}; font-size: {{style.scaledLabelFontSize}}px; font-family: {{style.label.fontFamily.value}}">
+                                                    {{content.labelText}} {{#if content.isRequired}}
+                                                    *
+                                                    {{/if}}
+                                                </label>
+                                                {{/if}}
+                                                <div class="text-area-wrapper" style="height: {{style.scaledHeight}}px">
+                                                    <div class="text-area" name="text-field"style="color: {{style.text.color.value}}; font-size: 21px; font-family: {{style.text.fontFamily.value}}; position: relative; overflow:hidden">
+                                                        <span style="position:absolute;">
+                                                        {{#if content.body}}
+                                                            {{content.body}}
+                                                        {{else}}
+                                                            {{content.placeholder}}{{#if content.isRequired}}{{#if content.hasLabel}}{{else}}*{{/if}}{{/if}}
+                                                        {{/if}}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {{/if}}
+                                        <!-- Checkbox Element -->
+                                        {{#if isCheckbox}}
+                                            <div class="checkbox-wrapper display-flex align-items-center justify-content-flex-start">
+                                                <input type="checkbox" name="checkbox"  
+                                                {{#if content.isChecked }} 
+                                                checked 
+                                                {{/if }} 
+                                            style="width: 20px; height:20px">
+                                                <label for="checkbox" style="margin-left:10px; color: {{style.label.textColor.value}}; font-size: {{style.scaledLabelFontSize}}px; font-family: {{style.label.fontFamily.value}}">
+                                                    {{safeString (replacePxWithPts content.labelText)}} {{#if content.isRequired}}
+                                                    *
+                                                    {{/if}}
+                                                </label>
+                                            </div>
+                                        {{/if}}
+                                        <!-- Signature Element -->
+                                        {{#if isSignature}}
+                                            <div class="signature display-flex flex-column" style="padding:5px;text-align:left">
+                                                {{#if content.hasLabel}}
+                                                <label for="signature-field" class="bold" style="color: {{style.label.textColor.value}}; font-size: {{style.scaledLabelFontSize}}px; font-family: {{style.label.fontFamily.value}}">
+                                                    {{content.labelText}}{{#if content.isRequired}}{{#if content.hasLabel}} *{{else}}{{/if}}{{/if}}
+                                                </label>
+                                                {{/if}}
+                                                <div class="signature-wrapper display-flex justify-content-flex-start" style="height: {{style.scaledHeight}};text-align:left;overflow-x: hidden;">
+                                                    {{#if content.link}} 
+                                                        <img class="signature-field" src="{{content.link}}">
+                                                    {{else}}
+                                                    <div class="display-flex align-items-center" name="signature-field">
+                                                        <img class="signature-img" src="https://cdn.honeycrm.com/files/signature-block.png" alt="signature image">
+                                                        <span style="margin-left: 16px;overflow-wrap: anywhere;">{{content.placeholder}}{{#if content.isRequired}}{{#if content.hasLabel}}{{else}} *{{/if}}{{/if}}</span>
+                                                    </div>
+                                                    {{/if}}
+                                                </div>
+                                            </div>
+                                        {{/if}}
+                                        <!-- Quote Element -->
+                                        {{#if isQuote}}
+                                        <table
+                                            width="100%"
+                                            border="0"
+                                            cellspacing="0"
+                                            cellpadding="0"
+                                            align="center"
+                                            style="padding:11px;">
+                                            <tbody>
+                                                <!--  Header -->
+                                                {{#if content.hasHeaderRow}}
+                                                <tr>
+                                                    <td>
+                                                        <div class="quote-header display-flex flex-wrap justify-content-flex-start align-items-center" style="border-top-left-radius: {{style.scaledTableBorderRadius}}px;
+                                                        border-top-right-radius: {{style.scaledTableBorderRadius}}px; 
+                                                        background-color: {{style.headerStyles.backgroundColor.value}};
+                                                        color: {{style.headerStyles.color.value}};
+                                                        font-size: {{style.scaledHeaderFontSize}}px;
+                                                        {{#each style.headerStyles.borders}}
+                                                            {{#ifCond this '===' 'top'}}
+                                                                border-top: {{../style.scaledHeaderBorderThickness}}px solid {{../style.headerStyles.borderColor.value}};
+                                                            {{/ifCond}}
+                                                            {{#ifCond this '===' 'bottom'}}
+                                                                border-bottom: {{../style.scaledHeaderBorderThickness}}px solid {{../style.headerStyles.borderColor.value}};
+                                                            {{/ifCond}}
+                                                            {{#ifCond this '===' 'right'}}
+                                                                border-right: {{../style.scaledHeaderBorderThickness}}px solid {{../style.headerStyles.borderColor.value}};
+                                                            {{/ifCond}}
+                                                            {{#ifCond this '===' 'left'}}
+                                                                border-left: {{../style.scaledHeaderBorderThickness}}px solid {{../style.headerStyles.borderColor.value}};
+                                                            {{/ifCond}}
+                                                        {{/each}}
+                                                        ">
+                                                            {{content.labelText}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                {{/if}}
+                                                <!--  Cells -->
+                                                {{#each content.solutions}}
+                                                <tr>
+                                                    <td>
+                                                        <table width="100%"
+                                                        style="
+                                                            gap: 0 21px;
+                                                            padding: 21px 43px 24px 43px;
+                                                            {{#if (isEven @index)}}
+                                                                background: {{../style.primaryCellStyles.backgroundColor.value}};
+                                                                font-family: {{../style.primaryCellStyles.fontFamily.value}};
+                                                                font-size: {{../style.scaledPrimaryCellFontSize}}px;
+                                                                color:  {{../style.primaryCellStyles.color.value}};
+                                                            {{else}}
+                                                                background: {{../style.secondaryCellStyles.backgroundColor.value}};
+                                                                font-family: {{../style.secondaryCellStyles.fontFamily.value}};
+                                                                font-size: {{../style.scaledSecondaryCellFontSize}}px;
+                                                                color:  {{../style.secondaryCellStyles.color.value}};
+                                                            {{/if}}
+                                                            {{#each ../style.cellBorderStyles.cellBorders}}
+                                                                {{#ifCond this '===' 'top'}}
+                                                                    border-top: {{../../style.scaledCellBorderThickness}}px solid {{../../style.cellBorderStyles.rowBordersColor.value}};
+                                                                {{/ifCond}}
+                                                                {{#ifCond this '===' 'bottom'}}
+                                                                    border-bottom: {{../../style.scaledCellBorderThickness}}px solid {{../../style.cellBorderStyles.rowBordersColor.value}};
+                                                                {{/ifCond}}
+                                                                {{#ifCond this '===' 'right'}}
+                                                                    border-right: {{../../style.scaledCellBorderThickness}}px solid {{../../style.cellBorderStyles.columnBordersColor.value}};
+                                                                {{/ifCond}}
+                                                                {{#ifCond this '===' 'left'}}
+                                                                    border-left: {{../../style.scaledCellBorderThickness}}px solid {{../../style.cellBorderStyles.columnBordersColor.value}};
+                                                                {{/ifCond}}
+                                                            {{/each}}
+                                                        "
+                                                                >
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div class="quote-table-column display-flex flex-wrap">
+                                                                            <img src="{{previewImageUrl}}" alt="solution image">
+                                                                            <div class="details display-flex flex-column flex-wrap" style="flex: 3 1 133px;">
+                                                                                <span class="bold" style="margin-bottom:13px">{{name}}</span><p class="description" style="margin-bottom:13px">{{description}}</p>
+                                                                            </div>
+                                                                            <div class="billing-info-wrapper display-flex flex-column" style="flex: 1 1 333px;">
+                                                                                <div class="data display-flex flex-wrap justify-content-flex-end">
+                                                                                    <div class="billing-info display-flex flex-column align-items-flex-end" style="flex: 1 2 133px;">
+                                                                                        <label class="bold" style="margin-bottom:5px;display:inline-block;">Price <span>
+                                                                                            {{#ifCond billingCycle '===' 'One-time'}}
+                                                                                                (once)
+                                                                                            {{/ifCond}}
+                                                                                            {{#ifCond billingCycle '===' 'Semi-annually'}}
+                                                                                                /6mos.
+                                                                                            {{/ifCond}}
+                                                                                            {{#ifCond billingCycle '===' 'Quarterly'}}
+                                                                                                /qtr.
+                                                                                            {{/ifCond}}
+                                                                                            {{#ifCond billingCycle '===' 'Annually'}}
+                                                                                                /yr.
+                                                                                            {{/ifCond}}
+                                                                                            </span> 
+                                                                                        </label>
+                                                                                        <div class="display-flex flex-row justify-content-center" style="margin-bottom:13px;gap: 5px;">$<div class="price-input">{{fixedDecimals price 2}}</div></div>
+                                                                                    </div>
+                                                                                    <div class="billing-info display-flex flex-column align-items-flex-end" style="flex: 1 1 53px;">
+                                                                                        <label class="bold" style="margin-bottom:5px;display:inline-block;">Quantity</label>
+                                                                                        <div class="display-flex flex-row justify-content-center" style="margin-bottom:13px;gap: 5px;"><div class="price-input">{{qty}}</div></div>
+                                                                                    </div>
+                                                                                    <div class="billing-info display-flex flex-column align-items-flex-end" style="flex: 1 1 53px;">
+                                                                                        <label class="bold" style="margin-bottom:5px;display:inline-block;">Subtotal</label>
+                                                                                        <div class="display-flex flex-row justify-content-flex-end" style="margin-bottom:13px;gap: 5px;">${{moneyFormat subtotal}}</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                {{#ifCond discountType '===' 'item'}}
+                                                                                <div class="discount display-flex flex-wrap justify-content-flex-end align-items-flex-end" style="white-space: nowrap;">
+                                                                                    <label style="flex: 2 1 160px;text-align:right;display:inline-block;">Discount per item: </label>
+                                                                                    <div class="discount-qty-wrapper display-flex flex-row justify-content-flex-end align-items-center" style="flex: 0.5 1 120px;gap: 5px;">
+                                                                                        {{#ifCond itemDiscountType '===' 'amount'}}
+                                                                                        <span>$</span>
+                                                                                        <div class="price-input display-flex flex-row justify-content-flex-end">{{fixedDecimals discount 2}}</div>
+                                                                                        {{else}}
+                                                                                        <div class="price-input display-flex flex-row justify-content-flex-end">{{fixedDecimals discount 2}}</div>
+                                                                                        <span>%</span>
+                                                                                        {{/ifCond}}
+                                                                                    </div>
+                                                                                </div>
+                                                                                {{/ifCond}}
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                {{/each}}
+                                                <!--  Payment Info -->
+                                                <tr>
+                                                    <td>
+                                                        <div class="payment-info display-flex flex-wrap flex-column justify-content-center align-items-flex-end">
+                                                            <div class="line display-flex flex-row flex-wrap justify-content-flex-end"><span>Upfront</span><span>${{moneyFormat content.upfrontPayment}}</span></div>
+                                                            <div class="line display-flex flex-row flex-wrap justify-content-flex-end"><span>Monthly</span><span>${{moneyFormat content.monthlyPayment}}</span></div>
+                                                            {{#if content.hasTax}}
+                                                                <div class="line display-flex flex-row flex-wrap justify-content-flex-end"><span>Tax({{content.taxValue}} %)</span><span>${{moneyFormat (getPercentage content.taxValue (add content.upfrontPayment content.monthlyPayment))}}</span></div>
+                                                            {{/if}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <!--  Footer -->
+                                                <tr>
+                                                    <td>
+                                                        <div class="quote-footer display-flex flex-wrap justify-content-flex-end align-items-center" style="border-bottom-left-radius: {{style.scaledTableBorderRadius}}px;
+                                                        border-bottom-right-radius: {{style.scaledTableBorderRadius}}px; 
+                                                        background-color: {{style.headerStyles.backgroundColor.value}};
+                                                        color: {{style.footerStyles.color.value}};
+                                                        font-size: {{style.scaledFooterFontSize}}px;
+                                                        ">
+                                                        Total:  <p>${{moneyFormat content.total}}</p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        {{/if}}
+                                    </div>
+                                    {{/each}}
+                                    </div>
+                                {{/each}}
+                            </div>
+
+                        </div>
+                        {{/each}}
+                    </div>
+                    {{#ifCond footer.isGlobalVisible '&&' isIndividualFooterVisible}}
+                      {{#ifCond index '===' (add pageBreaksNumber 1)}}
+                        <div class="page-footer display-flex  justify-content-space-between align-items-center"
+                        style="background:{{footer.style.computedBackground}}; overflow: hidden;">
+                            <div class="message-container"
+                                style="font-size: {{footer.style.scaledMessageFontSize}}px ;font-family: {{footer.style.message.fontFamily.value}};
+                                            color:{{footer.style.message.color.value}}; float: left; text-align: center;">
+                                {{#if footer.content.hasMessage}}
+                                    {{footer.content.messageText}}
+                                {{/if}}
+                            </div>
+                            <div class="numbering-container"
+                                style="font-size: {{footer.style.scaledPageNumFontSize}}px ;font-family: {{footer.style.numbering.fontFamily.value}};
+                                    color:{{footer.style.numbering.color.value}}; float: right; text-align: center;">
+                                {{#if footer.content.hasPageNumbering}}
+                                    {{add @index 1}} of {{ ../pages.length }}
+                                {{/if}}
+                            </div>
+
+                        </div>
+                        {{else}}
+                          <div class="page-footer">
+                          </div>
+                      {{/ifCond}}
+                    {{else}}
+                    <div class="page-footer">
+                    </div>
+                    {{/ifCond}}
+                </div>
+                {{#ifCond @index '!==' (add ../pages.length -1) }}
+                    <div class="page-breaker" style="page-break-after: always; display:none">&nbsp;</div>
+                {{/ifCond }}
+            {{/times}}
+        {{/each}}
+        {{#each certificate.chuncksOfSigners}}
+                <div class="page certificate">
+                    <div class="header-container display-flex flex-row justify-content-space-between">
+                        <div class="header display-flex flex-column">
+                            <span class="title bold">Certificate Of Completion</span>
+                            <span class="bold document-id">Document ID: <span class="capitalize normal">{{../certificate.document.id }}</span></span>
+                        </div>
+                        <div class="details-card display-flex flex-row">
+                            <div class="display-flex flex-column align-items-flex-end">
+                                <span class="bold">Created:</span>
+                                <span class="bold">Owner:</span>
+                                <span class="bold">Completed:</span>
+                            </div>
+                            <div class="display-flex flex-column">
+                                <span class="normal"> {{../certificate.document.createdDate}}</span>
+                                <span class="normal"> {{../certificate.document.ownerName}}</span>
+                                <span class="normal"> {{../certificate.document.completedDate}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="recipients-table">
+                            <div class="table-header bold">
+                                <span class="title display-flex">Recipients</span>
+                            </div>
+                            <div class="columns normal display-flex flex-row align-items-center justify-content-space-around">
+                                <span class="column-name bold">SIGNER</span>
+                                <span class="column-name bold">TIMESTAMP</span>
+                                <span class="column-name bold">SIGNATURE</span>
+                            </div>
+                            {{#each this}}
+                                <div class="recipient-card display-flex">
+                                    <div class="pillar signer-info-wrapper display-flex flex-row">
+                                        <img src="{{mightNotBeUrl 'avatar' this.profilePicture}}" alt="Signer Profile Picture">
+                                        <div class="signer-info display-flex flex-column">
+                                            <span class="name bold">{{this.name}}</span>
+                                            <span class="email">({{this.email}})</span>
+                                            <span>IP Address: {{this.ipAddress}}</span>
+                                            <span>Location: {{this.location}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="pillar signer-action display-flex align-items-center justify-content-center">
+                                        <div class="display-flex flex-column align-items-flex-end justify-content-flex-start" style="height:100%"> 
+                                            <span class="bold">Sent: <span class="normal">{{this.sentDate}}</span></span>
+                                            <span class="bold">Viewed: <span class="normal">{{this.viewDate}}</span></span>
+                                            <span class="bold">{{#if this.signature}}Signed{{else}}Filled{{/if}}: <span class="normal">{{this.signedDate}}</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="pillar display-flex align-items-center justify-content-center">
+                                        {{#if this.signature}}
+                                        <div class="signature-container signature">
+                                            <img src="{{this.signature}}" alt="Recipient Signature">
+                                        </div>
+                                        {{else}}
+                                        <div class="signature-container"></div>
+                                        {{/if}}
+                                    </div>
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                    <div class="footer-container display-flex align-items-center justify-content-flex-end">
+                        <span>Created with:</span>
+                        <img src="https://cdn.honeycrm.com/files/horizontal-glasshive-simplified.png" alt="">
+                    </div>
+                </div>
+                {{#ifCond @index '!==' (add ../certificate.chuncksOfSigners -1) }}
+                    <div class="page-breaker" style="page-break-after: always; display:none">&nbsp;</div>
+                {{/ifCond }}
+        {{/each}}
+</body>
+
+<script>
+  const elements = document.querySelectorAll('span');
+  let elementsStyles = [];
+
+  elements.forEach(function(ele){
+    let computedStyle = window.getComputedStyle(ele).fontFamily;
+    const fontFamily = computedStyle.split(',')[0];
+    if(!elementsStyles.includes(fontFamily)){
+      elementsStyles.push(fontFamily);
+    }
+  });
+
+  WebFont.load({
+          google: {
+                  families: elementsStyles
+          }
+  });
+</script>
